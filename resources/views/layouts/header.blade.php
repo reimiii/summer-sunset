@@ -6,7 +6,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="{{ route('home') }}">
-                <img src="{{ Vite::asset('resources/images/hmms.png') }}" width="110" height="32" alt="Tabler"
+                <img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hmms.png') }}" width="110" height="32" alt="Tabler"
                      class="navbar-brand-image">
             </a>
         </h1>
