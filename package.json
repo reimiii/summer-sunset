@@ -13,6 +13,9 @@
     },
     "dependencies": {
         "@tabler/core": "^1.0.0-beta16",
-        "sass": "^1.56.2"
+        "jsvectormap": "^1.5.1",
+        "nouislider": "^15.6.1",
+        "sass": "^1.56.2",
+        "tom-select": "^2.2.2"
     }
 }
