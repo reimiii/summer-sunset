@@ -6,14 +6,15 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href="{{ route('home') }}">
-                <img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hmms.png') }}" width="110" height="32" alt="Tabler"
+                <img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hmms.png') }}" width="110"
+                     height="32" alt="Tabler"
                      class="navbar-brand-image">
             </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
             <div class="nav-item d-none d-md-flex me-3">
                 <div class="btn-list">
-                    <a href="https://github.com/tabler/tabler" class="btn btn-dark" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/reimiii/SUMMER-SUNSET" class="btn btn-dark" target="_blank" rel="noreferrer">
                         <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                              stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -23,12 +24,29 @@
                         </svg>
                         Source code
                     </a>
+                    <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal-report">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-address-book"
+                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M20 6v12a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2z"></path>
+                            <path d="M10 16h6"></path>
+                            <circle cx="13" cy="11" r="2"></circle>
+                            <path d="M4 8h3"></path>
+                            <path d="M4 12h3"></path>
+                            <path d="M4 16h3"></path>
+                        </svg>
+                        Contact
+                    </a>
                 </div>
+
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                    aria-label="Open user menu">
-                    <span class="avatar avatar-sm" style="background-image: url(./static/avatars/003f.jpg)"></span>
+                    <span class="avatar avatar-sm"
+                          style="background-image: url({{ request()->user()->getAvatar() }})"></span>
                     <div class="d-none d-xl-block ps-2">
                         <div>Christabel Charlwood</div>
                         <div class="mt-1 small text-muted">Tax Accountant</div>
@@ -41,3 +59,6 @@
         </div>
     </div>
 </header>
+
+<x-modal.contact/>
+
