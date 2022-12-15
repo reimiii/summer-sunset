@@ -17,7 +17,12 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'user_id' => \App\Models\User::factory()->create([
+                'name' => 'HILMI AM',
+                'email' => 'miigo@duck.com',
+            ]),
         ];
     }
 }

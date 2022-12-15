@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-auth()->loginUsingId(2);
+auth()->loginUsingId(1);
 
 Route::get('/', function () {
     return view('profile.index');
