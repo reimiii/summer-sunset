@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 auth()->loginUsingId(1);
 
-Route::get('/', function () {
-    return view('profile.index');
-})->name('home');
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
-Route::get('/woke', function () {
+Route::get('project', function () {
     return view('project.index');
 })->name('test');

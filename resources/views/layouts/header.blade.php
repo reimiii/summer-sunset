@@ -55,7 +55,16 @@
                 </a>
                 @auth
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        {{ $slot }}
+                        <a href="#" class="dropdown-item">Manage Profile</a>
+                        <a href="#" class="dropdown-item">Manage Project</a>
+                        <div class="dropdown-divider"></div>
+                        <form method="POST" action="#">
+                            @csrf
+                            <a href="#" class="dropdown-item" onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                Sign out
+                            </a>
+                        </form>
                     </div>
                 @endauth
             </div>

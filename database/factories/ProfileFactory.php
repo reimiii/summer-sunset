@@ -14,11 +14,10 @@ class ProfileFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'body' => $this->faker->paragraph,
             'user_id' => \App\Models\User::factory()->create([
                 'name' => 'HILMI AM',
                 'email' => 'miigo@duck.com',
