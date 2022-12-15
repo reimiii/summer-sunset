@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\ViewComposers\HeaderViewComposer;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -28,9 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
+        View::composer('layouts.header', HeaderViewComposer::class);
 
-        View::composer('layouts.header', function ($view) {
-            $view->with('user', User::select('name', 'email')->first());
-        });
+//        View::composer('layouts.header', function ($view) {
+//            $view->with('user', User::select('name', 'email')->first());
+//        });
     }
 }

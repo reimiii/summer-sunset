@@ -14,7 +14,8 @@
         <div class="navbar-nav flex-row order-md-last">
             <div class="nav-item d-none d-md-flex me-3">
                 <div class="btn-list">
-                    <a href="https://github.com/reimiii/SUMMER-SUNSET" class="btn btn-dark" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/reimiii/SUMMER-SUNSET" class="btn btn-dark" target="_blank"
+                       rel="noreferrer">
                         <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                              stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -47,10 +48,10 @@
                    aria-label="Open user menu">
                     <span class="avatar avatar-sm"
                           style="background-image: url({{ $user->getAvatar() }})"></span>
-                        <div class="d-none d-xl-block ps-2">
-                            <div>{{ $user->name }}</div>
-                            <div class="mt-1 small text-muted">{{ $user->email }}</div>
-                        </div>
+                    <div class="d-none d-xl-block ps-2">
+                        <div>{{ $user->name }}</div>
+                        <div class="mt-1 small text-muted">{{ $user->email }}</div>
+                    </div>
                 </a>
                 @auth
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

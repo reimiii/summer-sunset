@@ -7,7 +7,6 @@ use Illuminate\View\View;
 
 class HeaderViewComposer
 {
-
     protected $user;
 
     public function __construct(User $user)
@@ -15,7 +14,7 @@ class HeaderViewComposer
         $this->user = $user;
     }
 
-    public function compose(View $view)
+    public function compose(View $view): void
     {
          $view->with('user', $this->user->select('name', 'email')->first());
     }
