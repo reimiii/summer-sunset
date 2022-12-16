@@ -46,7 +46,7 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
                    @auth data-bs-toggle="dropdown" @endauth
-                   @guest data-bs-toggle="modal"  data-bs-target="#modal-login"@endguest
+                   @guest data-bs-toggle="modal" data-bs-target="#modal-login" @endguest
                    aria-label="Open user menu">
                     <span class="avatar avatar-sm"
                           style="background-image: url({{ $user->getAvatar() }})"></span>
@@ -60,10 +60,11 @@
                         <a href="#" class="dropdown-item">Manage Profile</a>
                         <a href="#" class="dropdown-item">Manage Project</a>
                         <div class="dropdown-divider"></div>
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a href="#" class="dropdown-item" onclick="event.preventDefault();
-                                this.closest('form').submit();">
+                            <a href="{{ route('logout') }}" class="dropdown-item"
+                               onclick="event.preventDefault();
+                                            this.closest('form').submit();">
                                 Sign out
                             </a>
                         </form>
@@ -75,5 +76,5 @@
 </header>
 
 <x-modal.contact/>
-<x-modal.login />
+<x-modal.login/>
 

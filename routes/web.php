@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
+Route::get('project', function () {
+    return view('project.index');
+})->name('test');
+
 Route::middleware('guest')->group(function () {
     Route::post('login', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'store'])
         ->name('login');
 });
 
-Route::get('project', function () {
-    return view('project.index');
-})->name('test');
+Route::middleware('auth')->group(function () {
+    Route::post('logout', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'destroy'])
+        ->name('logout');
+});
+
