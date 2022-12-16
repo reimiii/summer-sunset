@@ -44,7 +44,9 @@
 
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                <a href="#" class="nav-link d-flex lh-1 text-reset p-0"
+                   @auth data-bs-toggle="dropdown" @endauth
+                   @guest data-bs-toggle="modal"  data-bs-target="#modal-login"@endguest
                    aria-label="Open user menu">
                     <span class="avatar avatar-sm"
                           style="background-image: url({{ $user->getAvatar() }})"></span>
@@ -73,4 +75,5 @@
 </header>
 
 <x-modal.contact/>
+<x-modal.login />
 
