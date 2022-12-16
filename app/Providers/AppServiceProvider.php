@@ -30,9 +30,5 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer('layouts.header', HeaderViewComposer::class);
-
-//        View::composer('layouts.header', function ($view) {
-//            $view->with('user', User::select('name', 'email')->first());
-//        });
     }
 }
