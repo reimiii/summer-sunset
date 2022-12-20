@@ -29,5 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'destroy'])
         ->name('logout');
 
+    Route::prefix('m')->group(function () {
+        Route::get('p/{profile}', [\App\Http\Controllers\Manage\ProfileController::class, 'index'])
+            ->name('profile.index');
+    });
 });
 
