@@ -11,7 +11,7 @@
         <div class="col-lg-10 col-xl-9">
             <div class="card card-lg">
                 <div class="card-body markdown">
-                    {!! \Illuminate\Support\Str::markdown($profile->body) !!}
+                    {!! $profile->body !!}
                 </div>
             </div>
         </div>

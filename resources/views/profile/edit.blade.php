@@ -9,16 +9,18 @@
 
     <div class="row row-cards">
         <div class="col-12">
-            <form action="" method="post" id="createPostForm" class="card">
+            <form action="{{ route('profile.update', $profile) }}" method="post" id="createPostForm" class="card">
+                @csrf
+                @method('PUT')
                 <div class="card-header">
                     <h4 class="card-title">Profile Edit</h4>
                 </div>
 
                 <div class="card-body">
-                    <div id="editor">{{ $profile->body }}</div>
-                    <div>
-                        <input type="hidden" name="content" id="content">
-                    </div>
+                    <textarea id="editor" name="body">{{ $profile->body }}</textarea>
+                    @error('body')
+                    <small class="form-hint text-red">{{ $message }}</small>
+                    @enderror
                 </div>
 
                 <div class="card-footer text-end">
@@ -31,4 +33,7 @@
         </div>
     </div>
 
+    @push('scripts')
+        <script src="{{ \Illuminate\Support\Facades\Vite::asset('resources/my_js/coba.js') }}"></script>
+    @endpush
 </x-app-layout>

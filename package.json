@@ -13,7 +13,6 @@
     },
     "dependencies": {
         "@tabler/core": "^1.0.0-beta16",
-        "@toast-ui/editor": "^3.2.1",
         "jsvectormap": "^1.5.1",
         "nouislider": "^15.6.1",
         "sass": "^1.56.2",
