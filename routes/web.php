@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
-Route::middleware('guest')->group(function () {
-    Route::post('login', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'store'])
-        ->name('login');
+Route::prefix('project')->group(function () {
+    Route::controller(\App\Http\Controllers\ProjectController::class)->group(function () {
+        Route::get('/', 'index')->name('project.index');
+        Route::get('{project}', 'show')->name('project.show');
+    });
 });
+
+
 
 Route::middleware('auth')->group(function () {
     Route::post('logout', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'destroy'])
@@ -32,6 +36,12 @@ Route::middleware('auth')->group(function () {
             ->name('profile.update');
     });
 
-    Route::resource('project', \App\Http\Controllers\ProjectController::class);
+    Route::resource('project', \App\Http\Controllers\ProjectController::class)
+            ->except('index', 'show');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::post('login', [\App\Http\Controllers\Auth\AuthenticatedController::class, 'store'])
+        ->name('login');
 });
 

@@ -8,7 +8,6 @@
 
     @stack('head')
 
-{{--    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>--}}
     <title>{{ $title ?? config('app.name') }}</title>
     @vite(['resources/js/app.js'])
 </head>
@@ -21,17 +20,7 @@
 
     <div class="page-wrapper">
 
-        <div class="page-header d-print-none">
-            <div class="container-xl">
-                <div class="row g-2 align-items-center">
-                    <div class="col">
-                        <h2 class="page-title">
-                            {{ $header ?? 'Oke'}}
-                        </h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <x-header :title="$header" />
 
         <div class="page-body">
             <div class="container-xl">
