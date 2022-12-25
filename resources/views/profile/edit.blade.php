@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="card-body">
-                    <textarea id="editor" name="body">{{ $profile->body }}</textarea>
+                    <textarea rows="20" class="form-control" name="body">{{ $profile->body }}</textarea>
                     @error('body')
                     <small class="form-hint text-red">{{ $message }}</small>
                     @enderror
@@ -32,8 +32,4 @@
             </form>
         </div>
     </div>
-
-    @push('scripts')
-        <script src="{{ \Illuminate\Support\Facades\Vite::asset('resources/my_js/coba.js') }}"></script>
-    @endpush
 </x-app-layout>

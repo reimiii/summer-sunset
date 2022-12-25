@@ -4,8 +4,6 @@ import '@tabler/core/dist/js/tabler.min.js';
 
 import.meta.glob([
     '../images/**',
-    '../my_js/**'
 ]);
-
 
 
