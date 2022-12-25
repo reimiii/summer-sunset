@@ -15,7 +15,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index');
+        return view('project.index', [
+            'projects' => Project::select('name', 'body', 'id', 'thumbnail')->get()
+        ]);
     }
 
     /**
@@ -25,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.show');
+        return view('project.create');
     }
 
     /**
@@ -43,11 +45,12 @@ class ProjectController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Project $project)
     {
-        //
+        dd($project);
+        return view('project.show', $project);
     }
 
     /**

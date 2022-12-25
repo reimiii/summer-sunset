@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('thumbnail')->nullable();
-            $table->foreignUuid('user_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->string('description');
-            $table->fullText('body');
+            $table->longText('body');
             $table->timestamps();
         });
     }
