@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ route('project.create') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
