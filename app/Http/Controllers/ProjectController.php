@@ -63,7 +63,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        if ($project->is_public) {
+        if ($project->is_public || auth()->check()) {
             return view('project.show', [
                 'project' => $project
             ]);
@@ -80,6 +80,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        if (!auth()->check()) {
+            abort(404);
+        }
+
         return view('project.edit', [
             'project' => $project
         ]);
@@ -94,6 +98,10 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        if (!auth()->check()) {
+            abort(404);
+        }
+
         $project->update($request->validated());
 
         return to_route('project.show', $project);
@@ -107,6 +115,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if (!auth()->check()) {
+            abort(404);
+        }
+
         $project->delete();
 
         return back();
