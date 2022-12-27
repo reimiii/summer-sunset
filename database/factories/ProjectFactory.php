@@ -11,7 +11,6 @@ class ProjectFactory extends Factory
         return [
             'body' => $this->faker->paragraph,
             'name' => $this->faker->word,
-            'user_id' => 1,
         ];
     }
 }

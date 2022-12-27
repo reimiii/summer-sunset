@@ -7,24 +7,62 @@
         Project
     </x-slot:header>
 
-    <div class="row row-cards">
 
+    <div class="row row-cards">
         @foreach($projects as $project)
-            <div class="col-md-10 col-lg-4">
+            <div class="col-md-2 col-md-4">
                 <div class="card card-sm">
-                    <!-- Photo -->
-                    <div class="img-responsive img-responsive-21x9 card-img-top" style="background-image: url({{ $project->thumbnail }})"></div>
+
+                    @if($project->is_public)
+                        <div class="ribbon bg-green-lt">Public</div>
+                    @else
+                        <div class="ribbon bg-red-lt">Private</div>
+                    @endif
+
                     <div class="card-body">
-                        <h3 class="card-title">{{ $project->name }}</h3>
-                        <p class="text-muted">{{ str($project->body)->limit(90) }}</p>
+                        <a href="{{ route('project.show', $project) }}"
+                           class="card-title text-black">{{ str($project->name)->limit(30) }}</a>
+                        <p class="text-muted">{{ str($project->body)->limit(85) }}</p>
                     </div>
 
                     <div class="card-footer">
-                        <a href="{{ route('project.show', $project) }}" class="btn btn-primary">Show</a>
+                        <div class="d-flex">
+                            <a href="{{ route('project.show', $project) }}"
+                               class="btn btn-ghost-info">View</a>
+
+                            @auth()
+                                <div class="ms-auto">
+                                    <a href="{{ route('project.edit', $project) }}" class="btn btn-link">Edit</a>
+
+                                    <form action="{{ route('project.destroy', $project) }}" method="POST"
+                                          class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                                onclick="return confirm('Are you sure?')"
+                                                class="btn btn-ghost-danger">Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            @endauth
+
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="pagination">
+            {{ $projects->links() }}
+        </div>
+    </div>
+
+    @push('scripts')
+
+    @endpush
 
 </x-app-layout>

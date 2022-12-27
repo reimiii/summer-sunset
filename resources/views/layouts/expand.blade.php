@@ -9,7 +9,7 @@
                         <x-icon.profile name="Home"/>
                     </x-nav-link>
 
-                    <x-nav-link :active="request()->routeIs('project.index')"
+                    <x-nav-link :active="request()->routeIs('project*')"
                                 :href="route('project.index')">
                         <x-icon.project name="Project"/>
                     </x-nav-link>

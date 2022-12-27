@@ -5,25 +5,37 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
+        $projects = Project::query()
+            ->select('id', 'name', 'body', 'is_public')
+            ->when(!auth()->check(), fn($query) => $query->where('is_public', true))
+            ->latest()
+            ->paginate(9);
+
         return view('project.index', [
-            'projects' => Project::select('name', 'body', 'id', 'thumbnail')->get()
+            'projects' => $projects
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -33,57 +45,70 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProjectRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreProjectRequest  $request
+     * @return RedirectResponse
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $project = Project::create($request->validated());
+
+        return to_route('project.show', $project);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Project  $project
+     * @return Application|Factory|View
      */
     public function show(Project $project)
     {
-        dd($project);
-        return view('project.show', $project);
+        if ($project->is_public) {
+            return view('project.show', [
+                'project' => $project
+            ]);
+        } else {
+            abort(404);
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * @param  Project  $project
+     * @return Application|Factory|View
      */
     public function edit(Project $project)
     {
-        //
+        return view('project.edit', [
+            'project' => $project
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProjectRequest  $request
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * @param  UpdateProjectRequest  $request
+     * @param  Project  $project
+     * @return RedirectResponse
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $project->update($request->validated());
+
+        return to_route('project.show', $project);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * @param  Project  $project
+     * @return RedirectResponse
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return back();
     }
 }

@@ -4,11 +4,17 @@
     </x-slot:title>
 
     <x-slot:header>
-        Project Name
+        {{ $project->name }}
     </x-slot:header>
 
-    <div class="row row-cards">
-
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+            <div class="card card-lg">
+                <div class="card-body markdown">
+                    {!! str($project->body)->markdown()  !!}
+                </div>
+            </div>
+        </div>
     </div>
 
 </x-app-layout>

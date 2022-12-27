@@ -11,15 +11,17 @@
                 </h2>
             </div>
             @if(request()->routeIs('project.index'))
-                <div class="col-auto ms-auto">
-                    <div class="btn-list">
-                        <span class="d-none d-sm-inline">
-                          <a href="{{ route('project.create') }}" class="btn">
-                            New Project
-                          </a>
-                        </span>
+                @auth()
+                    <div class="col-auto ms-auto">
+                        <div class="btn-list">
+                            <span class="d-none d-sm-inline">
+                              <a href="{{ route('project.create') }}" class="btn btn-dark">
+                                New Project
+                              </a>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                @endauth
             @endif
         </div>
     </div>

@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('thumbnail')->nullable();
-            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->longText('body');
+            $table->boolean('is_public')->default(false);
             $table->timestamps();
         });
     }
