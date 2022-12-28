@@ -10,9 +10,9 @@
 
     <title>SS | {{ $title ?? config('app.name') }}</title>
 
-    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hm.svg') }}" sizes="16x16" type="image/svg+xml" media="(max-width: 480px)">
-    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hm.svg') }}" sizes="32x32" type="image/svg+xml" media="(max-width: 768px)">
-    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/hm.svg') }}" sizes="48x48" type="image/svg+xml">
+{{--    ico from https://www.favicon.cc/ --}}
+    <link rel="shortcut icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/yeahh.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/yeahh.ico') }}" type="image/x-icon">
 
     @vite(['resources/js/app.js'])
 </head>

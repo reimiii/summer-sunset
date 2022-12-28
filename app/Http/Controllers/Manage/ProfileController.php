@@ -10,6 +10,9 @@ class ProfileController extends Controller
 {
     public function index(Profile $profile)
     {
+        if (!auth()->check()) {
+            abort(404);
+        }
         return view('profile.edit', [
             'profile' => $profile
         ]);
@@ -18,7 +21,7 @@ class ProfileController extends Controller
     public function update(Request $request, Profile $profile)
     {
         $validated = $request->validate([
-           'body' => ['string', 'required']
+            'body' => ['string', 'required']
         ]);
 
         $profile->update($validated);
