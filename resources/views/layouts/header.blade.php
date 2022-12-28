@@ -59,7 +59,7 @@
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
                         <a href="{{ route('profile.index', session('profile')) }}" class="dropdown-item">Manage Profile</a>
-                        <a href="#" class="dropdown-item">Manage Project</a>
+{{--                        <a href="#" class="dropdown-item">Manage Project</a>--}}
                         <div class="dropdown-divider"></div>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
