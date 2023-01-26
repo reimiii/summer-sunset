@@ -17,8 +17,18 @@ docker run --rm \
     laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs
 ```
-> When using the `laravelsail/phpXX-composer` image, you should use the same version of PHP that you plan to use for your application (74, 80, 81, or 82), this project i'm use (81).
+> When using the `laravelsail/phpXX-composer` image, you should use the same version of PHP that you plan to use for your application (74, 80, 81, or 82), this project i'm using (81).
 
+copy `.env.example` to `.env`
 
+```bash
+# Copy .env.example to .env
+cp .env.example .env
+
+# In .env change value DB_HOST, DB_USERNAME, DB_PASSWORD to
+DB_HOST=mysql
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
 
 
