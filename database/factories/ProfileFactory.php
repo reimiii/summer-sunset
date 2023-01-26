@@ -19,8 +19,8 @@ class ProfileFactory extends Factory
         return [
             'body' => $this->faker->paragraph,
             'user_id' => \App\Models\User::factory()->create([
-                'name' => 'HILMI AM',
-                'email' => 'miigo@duck.com',
+                'name' => 'Cool Name',
+                'email' => 'exp@exp.com',
             ]),
         ];
     }

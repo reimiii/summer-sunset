@@ -17,7 +17,7 @@ docker run --rm \
     laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs
 ```
-> When using the `laravelsail/phpXX-composer` image, you should use the same version of PHP that you plan to use for your application (74, 80, 81, or 82), this project i'm using (81).
+> When using the `laravelsail/phpXX-composer` image, you should use the same version of PHP that you plan to use for your application (74, 80, 81, or 82), this project using (81).
 
 copy `.env.example` to `.env`
 
@@ -40,4 +40,11 @@ run artisan command
 - `sail artisan db:seed`
 - `sail yarn build`
 - visit `http://localhost`
+
+## image
+> Markdown but not sure about the code block
+- home or profile
+![Profile page](https://cdn.discordapp.com/attachments/900755513069953035/1068241010796277863/image.png)
+- manage profile
+![Manage Profile](https://cdn.discordapp.com/attachments/900755513069953035/1068240781078437959/image.png)
 
