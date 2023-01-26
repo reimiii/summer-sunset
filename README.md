@@ -1,6 +1,6 @@
 ## About
 The **SUMMER SUNSET** project is an idea that came to me, and I believe it has potential. I usually rely on tutorials for my projects, but for this one, I decided to go off on my own and see what I could come up with. I'm pretty happy with the outcome, but I am open to feedback and suggestions. Overall, I think it's a good project and I hope you will too!
-
+> this project use open-source project like [Laravel](https://laravel.com/), [Tabler](https://tabler.io/), [Tabler Icon](https://tabler-icons.io/)
 ## Usage
 > i'm using laravel sail for developing this project,
 > this guide for user sail too hehe, [install](https://laravel.com/docs/9.x/installation#laravel-and-docker) and [detail](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects)
@@ -41,6 +41,9 @@ run artisan command
 - `sail yarn build`
 - visit `http://localhost`
 
+> manage page mush be login, login using data `artisan db:seed`
+- email = `exp@exp.com`
+- password = `password`
 ## image
 > Markdown but not sure about the code block
 - home or profile
@@ -51,3 +54,10 @@ run artisan command
 
 ![Manage Profile](https://cdn.discordapp.com/attachments/900755513069953035/1068240781078437959/image.png)
 
+- project page
+
+![Project page](https://cdn.discordapp.com/attachments/900755513069953035/1068244055022112929/image.png)
+
+- manage project
+
+![Manage project](https://cdn.discordapp.com/attachments/900755513069953035/1068244681915383848/image.png)
