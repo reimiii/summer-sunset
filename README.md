@@ -44,7 +44,10 @@ run artisan command
 ## image
 > Markdown but not sure about the code block
 - home or profile
+
 ![Profile page](https://cdn.discordapp.com/attachments/900755513069953035/1068241010796277863/image.png)
+
 - manage profile
+
 ![Manage Profile](https://cdn.discordapp.com/attachments/900755513069953035/1068240781078437959/image.png)
 
