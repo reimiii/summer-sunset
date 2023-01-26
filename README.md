@@ -30,9 +30,14 @@ DB_HOST=mysql
 DB_USERNAME=sail
 DB_PASSWORD=password
 ```
+
+> make sure you done [this](https://laravel.com/docs/9.x/sail#configuring-a-shell-alias) step
+
 run artisan command
-- `sail artisan key:generate`
 - `sail up -d`
+- `sail artisan key:generate`
+- `sail artisan migrate`
+- `sail artisan db:seed`
 - `sail yarn build`
 - visit `http://localhost`
 
