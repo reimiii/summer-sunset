@@ -30,5 +30,9 @@ DB_HOST=mysql
 DB_USERNAME=sail
 DB_PASSWORD=password
 ```
-
+run artisan command
+- `sail artisan key:generate`
+- `sail up -d`
+- `sail yarn build`
+- visit `http://localhost`
 
