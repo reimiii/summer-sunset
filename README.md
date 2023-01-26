@@ -3,7 +3,7 @@ The **SUMMER SUNSET** project is an idea that came to me, and I believe it has p
 > this project use open-source project like [Laravel](https://laravel.com/), [Tabler](https://tabler.io/), [Tabler Icon](https://tabler-icons.io/)
 ## Usage
 > i'm using laravel sail for developing this project,
-> this guide for user sail too hehe, [install](https://laravel.com/docs/9.x/installation#laravel-and-docker) and [detail](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects)
+> this guide for laravel sail user, [install](https://laravel.com/docs/9.x/installation#laravel-and-docker) and [detail](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects)
 
 - clone project
 - navigate to project dir
