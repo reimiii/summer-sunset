@@ -45,7 +45,7 @@ run artisan command
 - email = `exp@exp.com`
 - password = `password`
 ## image
-> Markdown but not sure about the code block
+> Markdown but not secure from XSS Attack, and not support code block
 - home or profile
 
 ![Profile page](https://cdn.discordapp.com/attachments/900755513069953035/1068241010796277863/image.png)
