@@ -44,7 +44,7 @@ run artisan command
 > manage page mush be login, login using data `artisan db:seed`
 - email = `exp@exp.com`
 - password = `password`
-## image
+## preview
 > Markdown but not secure from XSS Attack, and not support code block
 - home or profile
 
